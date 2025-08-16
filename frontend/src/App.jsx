@@ -14,7 +14,8 @@ import { DatasetDetailsDrawer } from '@/components/DatasetDetailsDrawer'; // Imp
 
 // --- API Fetching Function ---
 const searchApi = async (query) => {
-  const response = await fetch('http://localhost:3001/api/search', {
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+  const response = await fetch(`${apiUrl}/api/search`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query }),
